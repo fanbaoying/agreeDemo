@@ -28,7 +28,7 @@ iOS SDK 要求 iOS 7.0 及以上版本
 		<true/>
 	</dict>
 ```
-### 使用SDK
+### SDK使用
 1.在需要使用支付的页面引入头文件
 ```
 #import "AgreePay.h"
