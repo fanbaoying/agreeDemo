@@ -19,7 +19,7 @@ iOS SDK 要求 iOS 7.0 及以上版本
 	Security.framework
 ```
 3. 添加 URL Schemes : 在 Xcode 中，选择你的工程设置项，选中 “TARGETS” 一栏，在 “Info” 标签栏的 “URL Types” 添加 “URL Schemes” ，分别添加支付宝，微信，银联 “URL Schemes”，建议名字起复杂一些，避免与其他程序冲突。（注意：微信的 URL Schemes 需要填入微信支付app id）
-4. 在Build Settings 搜索 Other Linker Flags , 添加 -force_load+空格+控件路径，如： （-force_load $(PROJECT_DIR)/testSDK/agreeUPPay/libPaymentControl.a）。
+4. 在Build Settings 搜索 Other Linker Flags , 添加 -force_load+空格+(微信sdk／银联sdk)控件路径，如： （-force_load $(PROJECT_DIR)/testSDK/agreeUPPay/libPaymentControl.a）。
 5. 如果 App 需要访问 `http://`, 需要在 `Info.plist` 添加如下代码：
 ```
 	<key>NSAppTransportSecurity</key>
