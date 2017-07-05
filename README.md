@@ -100,6 +100,7 @@ mutdic[@"payType"] = @"agreeUPPay";
 	返回8100 支付成功
 	返回8104 支付失败
 	返回8101 退出支付
+	返回8111 异常返回
 	 */
     }];
     return YES;
@@ -112,6 +113,7 @@ mutdic[@"payType"] = @"agreeUPPay";
 	返回8100 支付成功
 	返回8104 支付失败
 	返回8101 退出支付
+	返回8111 异常返回
 	 */
     }];
     return YES;
