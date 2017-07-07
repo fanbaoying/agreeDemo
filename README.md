@@ -82,8 +82,9 @@ iOS SDK 要求 iOS 7.0 及以上版本
     };
 }
 //调起支付
-[AgreePay payOrder:result appURLScheme:@"银联 URL Schemes" withCompletion:^(NSString *agreeResult) {
-    }];
+ViewController * __weak weakSelf = self;
+[AgreePay payOrder:result viewController:weakSelf appURLScheme:@"agreeUPPay1" withCompletion:^(NSString *agreeResult) {
+                    }];
 ```
 
 3. 支付结果回调
