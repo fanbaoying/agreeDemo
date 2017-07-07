@@ -37,51 +37,52 @@ iOS SDK 要求 iOS 7.0 及以上版本
 
 支付宝支付代码如下：
 ```
-//写在点击支付宝支付的函数中
-NSMutableDictionary *mutdic=[NSMutableDictionary dictionaryWithCapacity:0];
-mutdic[@"payOrder"] = @"后端返回";
-//sdk判断支付宝支付类型，使用agreeAlipay
-mutdic[@"payType"] = @"agreeAlipay";
+后端返回数据：
+{
+    message = "\U6210\U529f";
+    respCode = 000000;
+    result =     {
+        TrxNo = ".......";
+        credential = "sign=.....";
+        payChannel = ALI;
+    };
+}
 //调起支付
-[AgreePay payOrder:mutdic appURLScheme:@"支付宝 URL Schemes" withCompletion:^(NSString *agreeResult) {
+[AgreePay payOrder:result appURLScheme:@"支付宝 URL Schemes" withCompletion:^(NSString *agreeResult) {
     }];
 ```
 
 微信支付代码如下：
 ```
-//写在点击微信支付的函数中
-NSMutableDictionary *mutdic=[NSMutableDictionary dictionaryWithCapacity:0];
-//以下参数通过后端返回
-/** appid */
-mutdic[@"appid"] = @"后端返回";
-/** 商家向财付通申请的商家id */
-mutdic[@"partnerid"] = @"后端返回";
-/** 预支付订单 */
-mutdic[@"prepayid"] = @"后端返回";
-/** 商家根据财付通文档填写的数据和签名 */
-mutdic[@"package"] = @"后端返回";
-/** 随机串，防重发 */
-mutdic[@"noncestr"] = @"后端返回";
-/** 时间戳，防重发 */
-mutdic[@"timestamp"] = @"后端返回";
-/** 商家根据微信开放平台文档对数据做的签名 */
-mutdic[@"sign"] = @"后端返回";
-//sdk判断微信支付类型，使用agreePay
-mutdic[@"payType"] = @"agreePay";
+后端返回数据：
+{
+    message = "\U6210\U529f";
+    respCode = 000000;
+    result =     {
+        TrxNo = ".......";
+        credential = ".......";
+        payChannel = WEIXIN;
+    };
+}
 //调起支付
-[AgreePay payOrder:mutdic appURLScheme:@"微信 URL Schemes" withCompletion:^(NSString *agreeResult) {
+[AgreePay payOrder:result appURLScheme:@"微信 URL Schemes" withCompletion:^(NSString *agreeResult) {
     }];
 ```
 
 银联控件支付代码如下：
 ```
-//写在点击银联控件支付的函数中
-NSMutableDictionary *mutdic=[NSMutableDictionary dictionaryWithCapacity:0];
-mutdic[@"tn"] = @"后端返回";
-//sdk判断银联控件支付类型，使用agreeUPPay
-mutdic[@"payType"] = @"agreeUPPay";
+后端返回数据：
+{
+    message = "\U6210\U529f";
+    respCode = 000000;
+    result =     {
+        TrxNo = ".......";
+        credential = ".......";
+        payChannel = ACP;
+    };
+}
 //调起支付
-[AgreePay payOrder:mutdic appURLScheme:@"银联 URL Schemes" withCompletion:^(NSString *agreeResult) {
+[AgreePay payOrder:result appURLScheme:@"银联 URL Schemes" withCompletion:^(NSString *agreeResult) {
     }];
 ```
 
