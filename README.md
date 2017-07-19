@@ -37,16 +37,16 @@ iOS SDK 要求 iOS 7.0 及以上版本
 
 支付宝支付代码如下：
 ```
-后端返回数据：
-{
-    message = "\U6210\U529f";
-    respCode = 000000;
-    result =     {
-        TrxNo = ".......";
-        credential = "sign=.....";
-        payChannel = ALI;
-    };
-}
+//后端返回数据：
+//{
+//    message = "\U6210\U529f";
+//    respCode = 000000;
+//    result =     {
+//        TrxNo = ".......";
+//        credential = "sign=.....";
+//        payChannel = ALI;
+//    };
+//}
 //调起支付
 [AgreePay payOrder:result appURLScheme:@"支付宝 URL Schemes" withCompletion:^(NSString *agreeResult) {
     }];
@@ -54,16 +54,16 @@ iOS SDK 要求 iOS 7.0 及以上版本
 
 微信支付代码如下：
 ```
-后端返回数据：
-{
-    message = "\U6210\U529f";
-    respCode = 000000;
-    result =     {
-        TrxNo = ".......";
-        credential = ".......";
-        payChannel = WEIXIN;
-    };
-}
+//后端返回数据：
+//{
+//    message = "\U6210\U529f";
+//    respCode = 000000;
+//    result =     {
+//        TrxNo = ".......";
+//        credential = ".......";
+//       payChannel = WEIXIN;
+//    };
+//}
 //调起支付
 [AgreePay payOrder:result appURLScheme:@"微信 URL Schemes" withCompletion:^(NSString *agreeResult) {
     }];
@@ -71,20 +71,21 @@ iOS SDK 要求 iOS 7.0 及以上版本
 
 银联控件支付代码如下：
 ```
-后端返回数据：
-{
-    message = "\U6210\U529f";
-    respCode = 000000;
-    result =     {
-        TrxNo = ".......";
-        credential = ".......";
-        payChannel = ACP;
-    };
-}
+//后端返回数据：
+//{
+//    message = "\U6210\U529f";
+//    respCode = 000000;
+//   result =     {
+//        TrxNo = ".......";
+//        credential = ".......";
+//        payChannel = ACP;
+//   };
+//}
 //调起支付
 ViewController * __weak weakSelf = self;
-[AgreePay payOrder:result viewController:weakSelf appURLScheme:@"agreeUPPay1" withCompletion:^(NSString *agreeResult) {
-                    }];
+[AgreePay payOrder:result viewController:weakSelf appURLScheme:@"agreeUPPay1" appmodel:mode withCompletion:^(NSString *agreeResult) {    
+                    }];
+//mode "00"代表接入生产环境（正式版本需要）；"01"代表接入开发测试环境（测试版本需要）；
 ```
 
 3. 支付结果回调
