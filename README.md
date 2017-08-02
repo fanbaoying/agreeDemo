@@ -27,6 +27,13 @@ iOS SDK 要求 iOS 7.0 及以上版本
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+	
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>weixin</string>
+		<string>weixin://</string>
+		<string>wechat</string>
+	</array>
 ```
 ## SDK使用
 1. 在需要使用支付的页面引入头文件
@@ -66,6 +73,9 @@ iOS SDK 要求 iOS 7.0 及以上版本
 //}
 //调起支付
 [AgreePay payOrder:result appURLScheme:@"微信 URL Schemes" withCompletion:^(NSString *agreeResult) {
+
+//      如果没有安装微信，会返回“没有安装微信app”
+	NSLog(@"%@",agreeResult);
     }];
 ```
 
